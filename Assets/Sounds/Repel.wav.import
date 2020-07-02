@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Repel.wav-45e77405bb8d351787e10bc56b25c446.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Repel.wav"
+dest_files=[ "res://.import/Repel.wav-45e77405bb8d351787e10bc56b25c446.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

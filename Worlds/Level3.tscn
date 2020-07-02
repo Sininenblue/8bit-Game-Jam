@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Worlds/Tiles/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Worlds/Tiles/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Worlds/Tiles/Boundaries.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Worlds/Tiles/PlatformCollision.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Worlds/Tiles/Platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Spikes/Spikes.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 1 )
+
+[node name="Level3" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+
+[node name="Door" parent="." instance=ExtResource( 4 )]
+position = Vector2( 150, 80 )
+level_file = "res://Worlds/Level4.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 16, 137 )
+
+[node name="Boundaries" parent="." instance=ExtResource( 5 )]
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 262160, 0, 0, 262161, 0, 2, 327696, 0, 65536, 327697, 0, 65538, 393232, 0, 65536, 393233, 0, 65538, 524286, 0, 0, 524287, 0, 2, 458768, 0, 65536, 458769, 0, 65538, 589822, 0, 65536, 589823, 0, 65538, 524304, 0, 65536, 524305, 0, 65538, 655358, 0, 65536, 655359, 0, 65538, 589840, 0, 65536, 589841, 0, 65538, 720894, 0, 131072, 720895, 0, 131074, 655376, 0, 65536, 655377, 0, 4, 655378, 0, 1, 655379, 0, 1, 655380, 0, 1, 655381, 0, 2, 720912, 0, 131072, 720913, 0, 131073, 720914, 0, 131073, 720915, 0, 131073, 720916, 0, 131073, 720917, 0, 131074, 786440, 0, 196611, 786445, 0, 196611, 983038, 0, 196608, 983039, 0, 196610, 1179646, 0, 0, 1179647, 0, 1, 1114112, 0, 1, 1114113, 0, 1, 1114114, 0, 1, 1114115, 0, 2, 1245182, 0, 65536, 1245183, 0, 65537, 1179648, 0, 65537, 1179649, 0, 65537, 1179650, 0, 65537, 1179651, 0, 65538, 1310718, 0, 131072, 1310719, 0, 131073, 1245184, 0, 131073, 1245185, 0, 131073, 1245186, 0, 131073, 1245187, 0, 131074 )
+
+[node name="Platform" parent="." instance=ExtResource( 7 )]
+tile_data = PoolIntArray( 196618, 1, 0, 196619, 1, 0, 393221, 1, 0, 393222, 1, 0, 589829, 1, 0, 589830, 1, 0, 786441, 0, 0, 786442, 1, 0, 786443, 1, 0, 786444, 2, 0, 917504, 0, 0, 917505, 1, 0, 917506, 1, 0, 917507, 1, 0 )
+
+[node name="StaticBody2D" parent="Platform" instance=ExtResource( 6 )]
+
+[node name="CollisionShape2D" parent="Platform/StaticBody2D" index="0"]
+position = Vector2( 88, 97 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" parent="Platform" instance=ExtResource( 6 )]
+
+[node name="CollisionShape2D" parent="Platform/StaticBody2D2" index="0"]
+position = Vector2( 16, 113 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D3" parent="Platform" instance=ExtResource( 6 )]
+position = Vector2( -40, 0 )
+
+[node name="CollisionShape2D" parent="Platform/StaticBody2D3" index="0"]
+position = Vector2( 88, 73 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D4" parent="Platform" instance=ExtResource( 6 )]
+position = Vector2( 0, -48 )
+
+[node name="CollisionShape2D" parent="Platform/StaticBody2D4" index="0"]
+position = Vector2( 88, 73 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D5" parent="Platform" instance=ExtResource( 6 )]
+position = Vector2( -40, -24 )
+
+[node name="CollisionShape2D" parent="Platform/StaticBody2D5" index="0"]
+position = Vector2( 88, 73 )
+shape = SubResource( 3 )
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 128, 53 )
+rotation = -1.57079
+
+[node name="Spikes5" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 0, 83 )
+rotation = 1.57079
+
+[node name="Spikes6" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 0, 75 )
+rotation = 1.57079
+
+[node name="Spikes8" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 0, 67 )
+rotation = 1.57079
+
+[node name="Spikes7" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 0, 59 )
+rotation = 1.57079
+
+[node name="Spikes2" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 128, 61 )
+rotation = -1.57079
+
+[node name="Spikes4" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 128, 37 )
+rotation = -1.57079
+
+[node name="Spikes3" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 128, 45 )
+rotation = -1.57079
+
+[editable path="Platform/StaticBody2D"]
+
+[editable path="Platform/StaticBody2D2"]
+
+[editable path="Platform/StaticBody2D3"]
+
+[editable path="Platform/StaticBody2D4"]
+
+[editable path="Platform/StaticBody2D5"]

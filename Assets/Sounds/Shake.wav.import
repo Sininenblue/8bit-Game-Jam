@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Shake.wav-e72af67252c37b6e764bb9dc8d3aa503.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Shake.wav"
+dest_files=[ "res://.import/Shake.wav-e72af67252c37b6e764bb9dc8d3aa503.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

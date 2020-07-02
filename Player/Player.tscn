@@ -1,0 +1,181 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Player2.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sounds/Death.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/Jump.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sounds/Shake.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sounds/Spawn.wav" type="AudioStream" id=7]
+[ext_resource path="res://Player/particles/Wallslideparticles.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fall"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "jump"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.25
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "wallslide"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3, 3 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -4 )
+texture = ExtResource( 1 )
+hframes = 6
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fall = SubResource( 1 )
+anims/idle = SubResource( 2 )
+anims/jump = SubResource( 3 )
+anims/run = SubResource( 4 )
+anims/wallslide = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -3 )
+shape = SubResource( 6 )
+
+[node name="LeftRaycasts" type="Node2D" parent="."]
+position = Vector2( 0, -4 )
+
+[node name="Left1" type="RayCast2D" parent="LeftRaycasts"]
+position = Vector2( -3, -2 )
+enabled = true
+cast_to = Vector2( -1, 0 )
+
+[node name="Left2" type="RayCast2D" parent="LeftRaycasts"]
+position = Vector2( -3, 3 )
+enabled = true
+cast_to = Vector2( -1, 0 )
+
+[node name="RightRaycasts" type="Node2D" parent="."]
+position = Vector2( 0, -4 )
+
+[node name="Right1" type="RayCast2D" parent="RightRaycasts"]
+position = Vector2( 3, -2 )
+enabled = true
+cast_to = Vector2( 1, 0 )
+
+[node name="Right2" type="RayCast2D" parent="RightRaycasts"]
+position = Vector2( 3, 3 )
+enabled = true
+cast_to = Vector2( 1, 0 )
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="JumpBuffer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 5 )
+
+[node name="Death" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 4 )
+
+[node name="GroundHit" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 6 )
+
+[node name="Spawn" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 7 )
+volume_db = -3.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 160
+limit_bottom = 140
+script = ExtResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Wallslideparticles" parent="." instance=ExtResource( 8 )]
+emitting = false
+[connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
