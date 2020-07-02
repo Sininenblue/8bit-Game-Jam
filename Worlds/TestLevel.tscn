@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Worlds/Tiles/Platform.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Worlds/Tiles/Boundaries.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Worlds/Tiles/Background.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Repeller/Repeller.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Spikes/Floating Spike.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 1 )
@@ -67,6 +68,17 @@ position = Vector2( 116, 104 )
 
 [node name="Repeller" parent="." instance=ExtResource( 9 )]
 position = Vector2( 45, 65 )
+
+[node name="Floating Spike" type="Node2D" parent="."]
+
+[node name="Floating Spike" parent="Floating Spike" instance=ExtResource( 10 )]
+position = Vector2( 63, 63 )
+
+[node name="Floating Spike2" parent="Floating Spike" instance=ExtResource( 10 )]
+position = Vector2( 78, 63 )
+
+[node name="Floating Spike3" parent="Floating Spike" instance=ExtResource( 10 )]
+position = Vector2( 93, 63 )
 
 [editable path="Platform/StaticBody2D2"]
 
