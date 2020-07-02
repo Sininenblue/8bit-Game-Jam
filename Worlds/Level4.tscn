@@ -13,6 +13,7 @@
 
 [node name="Door" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 16 )
+level_file = "res://Worlds/Level5.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 12, 78 )
