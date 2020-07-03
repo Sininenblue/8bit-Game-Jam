@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SceneTransition="*res://Worlds/Tiles/SceneTransition.tscn"
+MusicPlayer="*res://UI/MusicPlayer.tscn"
 
 [display]
 

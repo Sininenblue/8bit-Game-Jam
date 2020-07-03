@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sounds/27 Coffee Break.ogg" type="AudioStream" id=1]
+[ext_resource path="res://UI/MusicPlayer.gd" type="Script" id=2]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -5.0
+script = ExtResource( 2 )
