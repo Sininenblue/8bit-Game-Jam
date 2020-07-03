@@ -56,6 +56,9 @@ func _ready():
 
 
 func _process(delta):
+	if Input.is_action_just_pressed("Restart"):
+		get_tree().reload_current_scene()
+	
 	_squish(delta)
 	
 	_handle_animations()

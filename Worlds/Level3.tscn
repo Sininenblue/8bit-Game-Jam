@@ -1,115 +1,35 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Worlds/Tiles/TileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Worlds/Tiles/Background.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Worlds/Tiles/Boundaries.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Worlds/Tiles/PlatformCollision.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Worlds/Tiles/Platform.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Spikes/Spikes.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Worlds/Tiles/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Repeller/Repeller.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Worlds/Tiles/TileMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Worlds/Tiles/Boundaries.tscn" type="PackedScene" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 1 )
+[node name="Level4" type="Node2D"]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 1 )
+[node name="Background" parent="." instance=ExtResource( 2 )]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 1 )
+[node name="Door" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 16 )
+level_file = "res://Worlds/Level5.tscn"
 
-[node name="Level3" type="Node2D"]
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 12, 78 )
 
-[node name="Background" parent="." instance=ExtResource( 3 )]
+[node name="Boundaries" parent="." instance=ExtResource( 6 )]
 
-[node name="Door" parent="." instance=ExtResource( 4 )]
-position = Vector2( 150, 80 )
-level_file = "res://Worlds/Level4.tscn"
+[node name="TileMap" parent="." instance=ExtResource( 5 )]
+tile_data = PoolIntArray( -65538, 0, 0, -65537, 0, 1, -131072, 0, 1, -131071, 0, 1, -131070, 0, 2, -131056, 0, 0, -131055, 0, 1, -131054, 0, 1, -131053, 0, 1, -131052, 0, 1, -131051, 0, 2, -2, 0, 65536, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65538, -65520, 0, 65536, -65519, 0, 65537, -65518, 0, 65537, -65517, 0, 65537, -65516, 0, 65537, -65515, 0, 65538, 65534, 0, 65536, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65538, 16, 0, 65536, 17, 0, 65537, 18, 0, 65537, 19, 0, 65537, 20, 0, 65537, 21, 0, 65538, 131070, 0, 65536, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65538, 65552, 0, 65536, 65553, 0, 65537, 65554, 0, 65537, 65555, 0, 65537, 65556, 0, 65537, 65557, 0, 65538, 196606, 0, 65536, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65537, 131074, 0, 65538, 131078, 0, 0, 131079, 0, 2, 131088, 0, 131072, 131089, 0, 131073, 131090, 0, 131073, 131091, 0, 65537, 131092, 0, 65537, 131093, 0, 65538, 262142, 0, 65536, 262143, 0, 65537, 196608, 0, 65537, 196609, 0, 65537, 196610, 0, 65538, 196614, 0, 65536, 196615, 0, 65538, 196627, 0, 65536, 196628, 0, 65537, 196629, 0, 65538, 327678, 0, 65536, 327679, 0, 65537, 262144, 0, 65537, 262145, 0, 65537, 262146, 0, 65538, 262150, 0, 131072, 262151, 0, 131074, 262163, 0, 65536, 262164, 0, 65537, 262165, 0, 65538, 393214, 0, 65536, 393215, 0, 65537, 327680, 0, 65537, 327681, 0, 131073, 327682, 0, 131074, 327699, 0, 65536, 327700, 0, 65537, 327701, 0, 65538, 458750, 0, 65536, 458751, 0, 65537, 393216, 0, 65538, 393235, 0, 65536, 393236, 0, 65537, 393237, 0, 65538, 524286, 0, 65536, 524287, 0, 65537, 458752, 0, 65538, 458771, 0, 65536, 458772, 0, 65537, 458773, 0, 65538, 589822, 0, 65536, 589823, 0, 65537, 524288, 0, 65538, 524307, 0, 65536, 524308, 0, 65537, 524309, 0, 65538, 655358, 0, 65536, 655359, 0, 65537, 589824, 0, 65538, 589843, 0, 65536, 589844, 0, 65537, 589845, 0, 65538, 720894, 0, 65536, 720895, 0, 65537, 655360, 0, 4, 655361, 0, 1, 655362, 0, 1, 655363, 0, 2, 655379, 0, 65536, 655380, 0, 65537, 655381, 0, 65538, 786430, 0, 131072, 786431, 0, 131073, 720896, 0, 131073, 720897, 0, 131073, 720898, 0, 131073, 720899, 0, 131074, 720915, 0, 65536, 720916, 0, 65537, 720917, 0, 65538, 786444, 0, 0, 786445, 0, 1, 786446, 0, 2, 786451, 0, 65536, 786452, 0, 65537, 786453, 0, 65538, 851980, 0, 131072, 851981, 0, 131073, 851982, 0, 131074, 851987, 0, 65536, 851988, 0, 65537, 851989, 0, 65538, 917523, 0, 65536, 917524, 0, 65537, 917525, 0, 65538, 983059, 0, 65536, 983060, 0, 65537, 983061, 0, 65538, 1048595, 0, 65536, 1048596, 0, 65537, 1048597, 0, 65538, 1114131, 0, 65536, 1114132, 0, 65537, 1114133, 0, 65538, 1179667, 0, 65536, 1179668, 0, 65537, 1179669, 0, 65538, 1245203, 0, 131072, 1245204, 0, 131073, 1245205, 0, 131074 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 16, 137 )
+[node name="Repels" type="Node2D" parent="."]
 
-[node name="Boundaries" parent="." instance=ExtResource( 5 )]
+[node name="Repeller" parent="Repels" instance=ExtResource( 4 )]
+position = Vector2( 64, 118 )
 
-[node name="TileMap" parent="." instance=ExtResource( 1 )]
-tile_data = PoolIntArray( 262160, 0, 0, 262161, 0, 2, 327696, 0, 65536, 327697, 0, 65538, 393232, 0, 65536, 393233, 0, 65538, 524286, 0, 0, 524287, 0, 2, 458768, 0, 65536, 458769, 0, 65538, 589822, 0, 65536, 589823, 0, 65538, 524304, 0, 65536, 524305, 0, 65538, 655358, 0, 65536, 655359, 0, 65538, 589840, 0, 65536, 589841, 0, 65538, 720894, 0, 131072, 720895, 0, 131074, 655376, 0, 65536, 655377, 0, 4, 655378, 0, 1, 655379, 0, 1, 655380, 0, 1, 655381, 0, 2, 720912, 0, 131072, 720913, 0, 131073, 720914, 0, 131073, 720915, 0, 131073, 720916, 0, 131073, 720917, 0, 131074, 786440, 0, 196611, 786445, 0, 196611, 983038, 0, 196608, 983039, 0, 196610, 1179646, 0, 0, 1179647, 0, 1, 1114112, 0, 1, 1114113, 0, 1, 1114114, 0, 1, 1114115, 0, 2, 1245182, 0, 65536, 1245183, 0, 65537, 1179648, 0, 65537, 1179649, 0, 65537, 1179650, 0, 65537, 1179651, 0, 65538, 1310718, 0, 131072, 1310719, 0, 131073, 1245184, 0, 131073, 1245185, 0, 131073, 1245186, 0, 131073, 1245187, 0, 131074 )
+[node name="Repeller2" parent="Repels" instance=ExtResource( 4 )]
+position = Vector2( 124, 57 )
 
-[node name="Platform" parent="." instance=ExtResource( 7 )]
-tile_data = PoolIntArray( 196618, 1, 0, 196619, 1, 0, 393221, 1, 0, 393222, 1, 0, 589829, 1, 0, 589830, 1, 0, 786441, 0, 0, 786442, 1, 0, 786443, 1, 0, 786444, 2, 0, 917504, 0, 0, 917505, 1, 0, 917506, 1, 0, 917507, 1, 0 )
-
-[node name="StaticBody2D" parent="Platform" instance=ExtResource( 6 )]
-
-[node name="CollisionShape2D" parent="Platform/StaticBody2D" index="0"]
-position = Vector2( 88, 97 )
-shape = SubResource( 1 )
-
-[node name="StaticBody2D2" parent="Platform" instance=ExtResource( 6 )]
-
-[node name="CollisionShape2D" parent="Platform/StaticBody2D2" index="0"]
-position = Vector2( 16, 113 )
-shape = SubResource( 2 )
-
-[node name="StaticBody2D3" parent="Platform" instance=ExtResource( 6 )]
-position = Vector2( -40, 0 )
-
-[node name="CollisionShape2D" parent="Platform/StaticBody2D3" index="0"]
-position = Vector2( 88, 73 )
-shape = SubResource( 3 )
-
-[node name="StaticBody2D4" parent="Platform" instance=ExtResource( 6 )]
-position = Vector2( 0, -48 )
-
-[node name="CollisionShape2D" parent="Platform/StaticBody2D4" index="0"]
-position = Vector2( 88, 73 )
-shape = SubResource( 3 )
-
-[node name="StaticBody2D5" parent="Platform" instance=ExtResource( 6 )]
-position = Vector2( -40, -24 )
-
-[node name="CollisionShape2D" parent="Platform/StaticBody2D5" index="0"]
-position = Vector2( 88, 73 )
-shape = SubResource( 3 )
-
-[node name="Spikes" type="Node2D" parent="."]
-
-[node name="Spikes" parent="Spikes" instance=ExtResource( 8 )]
-position = Vector2( 128, 53 )
-rotation = -1.57079
-
-[node name="Spikes5" parent="Spikes" instance=ExtResource( 8 )]
-position = Vector2( 0, 83 )
-rotation = 1.57079
-
-[node name="Spikes6" parent="Spikes" instance=ExtResource( 8 )]
-position = Vector2( 0, 75 )
-rotation = 1.57079
-
-[node name="Spikes8" parent="Spikes" instance=ExtResource( 8 )]
-position = Vector2( 0, 67 )
-rotation = 1.57079
-
-[node name="Spikes7" parent="Spikes" instance=ExtResource( 8 )]
-position = Vector2( 0, 59 )
-rotation = 1.57079
-
-[node name="Spikes2" parent="Spikes" instance=ExtResource( 8 )]
-position = Vector2( 128, 61 )
-rotation = -1.57079
-
-[node name="Spikes4" parent="Spikes" instance=ExtResource( 8 )]
-position = Vector2( 128, 37 )
-rotation = -1.57079
-
-[node name="Spikes3" parent="Spikes" instance=ExtResource( 8 )]
-position = Vector2( 128, 45 )
-rotation = -1.57079
-
-[editable path="Platform/StaticBody2D"]
-
-[editable path="Platform/StaticBody2D2"]
-
-[editable path="Platform/StaticBody2D3"]
-
-[editable path="Platform/StaticBody2D4"]
-
-[editable path="Platform/StaticBody2D5"]
+[node name="Repeller3" parent="Repels" instance=ExtResource( 4 )]
+position = Vector2( 90, 42 )
