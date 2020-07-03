@@ -24,7 +24,7 @@ extents = Vector2( 8, 1 )
 
 [node name="Door" parent="." instance=ExtResource( 4 )]
 position = Vector2( 150, 80 )
-level_file = "res://Worlds/Level4.tscn"
+level_file = "res://Worlds/Level3.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 137 )

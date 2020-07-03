@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="8bit Game Jam"
-run/main_scene="res://Worlds/TestLevel.tscn"
+run/main_scene="res://UI/Main Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

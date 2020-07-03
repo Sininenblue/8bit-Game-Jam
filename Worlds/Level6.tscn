@@ -23,6 +23,7 @@ extents = Vector2( 8, 1 )
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
 position = Vector2( 108, 136 )
+level_file = "res://Worlds/Final.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 44, 15 )
@@ -49,6 +50,7 @@ position = Vector2( 48, 73 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D3" parent="Platform" instance=ExtResource( 9 )]
+position = Vector2( 4, 0 )
 
 [node name="CollisionShape2D" parent="Platform/StaticBody2D3" index="0"]
 position = Vector2( 148, 97 )
